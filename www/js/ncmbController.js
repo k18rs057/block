@@ -57,6 +57,6 @@ Score.greaterThan("score", score)
         var self = this;
         self.ncmb = new NCMB(self.APPLICATION_KEY, self.CLIENT_KEY);    // mobile backendの初期化
         self.screenSize = screenSize;
-    }
+    }    
 }
 

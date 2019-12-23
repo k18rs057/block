@@ -42,21 +42,22 @@ var BB = {
     // Create blocks map
     setMap: function() {
         var blockMap = [
-            [null,      null,       null,       null,       null,       'blue',     null,       null,       null,       null],
-            [null,      null,       null,       null,       'red',      'red',      'blue',     null,       null,       null],
-            [null,      null,       null,       'red',      'red',      null,       null,       'blue',     null,       null],
-            [null,      null,       'red',      'red',      null,       null,       null,       null,       'blue',     null],    
-            [null,      'red',      'red',      null,       null,       'gold',     null,       null,       'silver',   'silver'],    
-            [null,      null,       'red',      'red',       null,       null,       null,       'silver',   'silver',   null],    
-            [null,      null,       null,       'red',      'red',       null,       'silver',   'silver',   null,       null],    
-            [null,      null,       null,       null,       'silver',   'silver',   'silver',   null,       null,       null],
-            [null,      null,       null,       null,       null,       'silver',   null,       null,       null,       null]
+            [null,      null,       null,       null,       null,       null,     null,       null,       null,       null],
+            [null,      null,       null,       null  ,     null,      null,      null,     null,       null,       null,null],
+            [null,      null,       'gold',       'gold',      null,      null,       null,       'gold',     'gold',       null],
+            [null,      'gold',       'red',      'red',      'gold',       null,       'gold',       'red',       'red',     'gold'],    
+            ['gold',      'red',      'red',      'red',       'red',       'blue',     'red',       'red',       'red',   'red','gold'],    
+            [null,      'gold',       'red',      'red',       'red',       'red',       'red',       'red',   'red',   'gold'],    
+            [null,      null,       'gold',       'red',      'red',     'red'  ,       'red',  'red' ,   'gold',       null],    
+            [null,      null,       null,       'gold',      'red',      'red' ,       'red',   'gold',   null,       null],    
+            [null,      null,       null,       null,       'gold',   'red',   'gold',   null,       null,       null],
+            [null,      null,       null,       null,       null,       'gold',   null,       null,       null,       null]
         ];
         
         for(j = 0; j < blockMap.length; j++) {
             for(i = 0; i < blockMap[j].length; i++) {
                 if(blockMap[j][i] !== null) {
-                    var block = BB.addBlock(10 + (30 * i), 80 + (12 * j), blockMap[j][i]);
+                    var block = BB.addBlock(110 + (12 * i), 80 + (12 * j), blockMap[j][i]);
                 }
             }
         }
@@ -95,7 +96,7 @@ var BB = {
         block.position.x = x;
         block.position.y = y;
         
-        block.width = 30;
+        block.width = 12;
         block.height = 12;
         
         block.point = point;
@@ -340,6 +341,7 @@ function init() {
 
     requestAnimFrame(animate);
     ncmbController.init(BB.screenSize);
+    ncmbController.createUser();
 }
 
 
