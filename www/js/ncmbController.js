@@ -52,6 +52,30 @@ Score.greaterThan("score", score)
 },
 
 
+// ユーザー登録
+createUser: function() {
+    var self = this;
+
+    //適当なUUIDを作成
+    var uuid = self.uuid();
+
+    //ユーザークラスのインスタンスを作成
+    //userNameとパスワードにはuuidを設定
+    var user = new self.ncmb.User({userName:uuid, password:uuid});
+
+    //会員登録を行うメソッドを実行
+    user.signUpByAccount()
+        .then(function(user){
+            // 登録完了後ログイン
+            localStorage.setItem("userName", uuid);
+            alert("ユーザー登録に成功しました！");
+        })
+        .catch(function(err){
+            // userName が被った場合はエラーが返る
+            alert("ユーザー登録に失敗しました");
+        });
+},
+
     // 初期化
     init: function(screenSize) {
         var self = this;
