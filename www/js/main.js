@@ -297,6 +297,8 @@ function init() {
     }
     */
     BB.screenSize = setBound();
+    
+
  
     BB.renderer = (getUa() === "Android") ? new PIXI.CanvasRenderer(BB.screenSize.width, BB.screenSize.height) : new PIXI.autoDetectRenderer(BB.screenSize.width, BB.screenSize.height),
     BB.renderer.transparent = false;
@@ -336,6 +338,7 @@ function init() {
             case 38:
                 BB.paddle.position.y -= 1;
                 break;
+                
         }
     });
 
